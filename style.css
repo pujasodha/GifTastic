@@ -1,0 +1,27 @@
+body {
+    background-color: #006E70;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 50px;
+    color: #BDA10A
+}
+
+#character-form {
+    text-align: center;
+    color: #7D0D5B;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#buttons-view {
+    text-align: center;
+}
+
+.character-btn {
+    font-family: 'Cinzel Decorative', cursive;
+    margin-top: 30px;
+    margin-left: 10px;
+}
