@@ -46,16 +46,35 @@
                 method: "GET"
             })
                 .then(function (resp) {
-                    // console.log(resp.data);
-                    var gifDiv = $("#gifsView")
-                    console.log(resp.data.length)
+                    var result = resp.data
+                    for (var i = 0; i < resp.data.length; i++) {
+                        var gifDiv = $("#gifsView")
+                        var showGif = $('<img>')
+                        showGif.attr('src', result[i].images.fixed_height_still.url);
+                        showGif.attr('title', "Rating: " + result[i].rating);
+                        showGif.attr('data-still', result[i].images.fixed_height_still.url);
+                        showGif.attr('data-state', 'still');
+                        showGif.addClass('gif');
+                        showGif.attr('data-animate', result[i].images.fixed_height.url);
 
-                    // var gif = resp.url
-                    for (var i=0; i < resp.data.length;i++) {
-                    gifDiv.append("<img src ='" +resp.data[i].images.fixed_height.url+"'>")
+                        gifDiv.append(showGif)
+                        $("#gifsView").prepend(gifDiv);
+                        // gifDiv.append("<img src ='" + result[i].images.fixed_height_still.url + "'data-still = '" + result[i].images.fixed_height_still.url + "'data-animate='" + result[i].images.fixed_height.url + "'data-state = still" + "class = 'gif'" + "style = 'padding-right: 20px'>")
                     }
                 })
         }
+
+        $(document).on('click', '.gif', function () {
+            var state = $(this).attr('data-state');
+            if (state == 'still') {
+                $(this).attr('src', $(this).data('animate'));
+                $(this).attr('data-state', 'animate');
+            } 
+            else {
+                $(this).attr('src', $(this).data('still'));
+                $(this).attr('data-state', 'still');
+            };
+        });
 
         function renderButtons() {
             $("#buttons-view").empty();
@@ -68,11 +87,12 @@
             }
         }
 
-        $("#addCharacter").on("click", function (event) {
+        $("#addCharacter").on("click", function displayGifs() {
             event.preventDefault();
-            var character = $("character-input").val().trim();
+            var character = $("#character-input").val().trim();
             characters.push(character);
             renderButtons()
+            return false
         })
 
 
