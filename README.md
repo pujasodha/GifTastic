@@ -14,4 +14,4 @@ API/ AJAX
 
 # Screenshot
 
-![screen shot 2018-05-07 at 1 58 30 pm](https://user-images.githubusercontent.com/34947997/39725556-0ccea182-5201-11e8-865c-8d01779cfe95.png)
+<img width="993" alt="screen shot 2018-05-07 at 2 13 20 pm" src="https://user-images.githubusercontent.com/34947997/39725580-29a5491e-5201-11e8-9153-a51f59cec5d2.png">
